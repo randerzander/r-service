@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<metainfo>
+    <schemaVersion>2.0</schemaVersion>
+    <services>
+        <service>
+            <name>R</name>
+            <displayName>R</displayName>
+            <comment>R</comment>
+            <version>1.0.0</version>
+            <components>
+                <component>
+                  <name>R_CLIENT</name>
+                  <displayName>R Client</displayName>
+                  <category>CLIENT</category>
+                  <cardinality>1+</cardinality>
+                  <commandScript>
+                    <script>scripts/client.py</script>
+                    <scriptType>PYTHON</scriptType>
+                    <timeout>5000</timeout>
+                  </commandScript>
+                </component>
+            </components>
+            <osSpecifics>
+              <osSpecific>
+                <osFamily>redhat6</osFamily>
+                <packages>
+                  <package><name>R</name></package>
+                </packages>
+              </osSpecific>
+            </osSpecifics>
+            <commandScript>
+              <script>scripts/service_check.py</script>
+              <scriptType>PYTHON</scriptType>
+              <timeout>300</timeout>
+            </commandScript>
+            <configuration-dependencies>
+              <config-type>r-config</config-type>
+            </configuration-dependencies>
+            <requiredServices>
+              <service>HDFS</service>
+            </requiredServices>
+        </service>
+    </services>
+</metainfo>
