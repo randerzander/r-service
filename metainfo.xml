@@ -37,7 +37,8 @@
               <config-type>r-config</config-type>
             </configuration-dependencies>
             <requiredServices>
-              <service>HDFS</service>
+              <service>YARN</service>
+              <service>MAPREDUCE2</service>
             </requiredServices>
         </service>
     </services>

@@ -7,20 +7,14 @@ class Client(Script):
     import params
 
     # Get binaries from HDFS
-    Execute('mkdir -p ' + params.root_dir)
-    Execute('rm -rf ' + params.root_dir + '/*')
-    prefix='cd ' + params.root_dir + '; export HADOOP_CMD=/usr/bin/hadoop; export HADOOP_STREAMING=/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar; '
-    Execute(prefix+'hadoop fs -get /apps/r/* .')
+    prefix= 'export HADOOP_CMD=/usr/bin/hadoop; export HADOOP_STREAMING=/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar; '
 
     # Install packages listed in metainfo.xml
-    if not os.path.exists('/etc/yum.repos.d/epel.repo'): Execute(prefix+'mv resources/epel.repo /etc/yum.repos.d/')
+    if not os.path.exists('/etc/yum.repos.d/epel.repo'): Execute('cp ' + params.resources_dir + 'epel.repo /etc/yum.repos.d/')
     self.install_packages(env)
 
     # Install R libs
-    Execute(prefix+'tar -xzvf resources/library.tgz')
-    Execute(prefix+'cp -r library /usr/lib64/R/')
-    #Execute('rm -rf /usr/lib64/R/library')
-    #Execute(prefix+'mv library /usr/lib64/R/')
+    Execute(prefix+'tar -xzvf ' + params.resources_dir + 'library.tgz -C /usr/lib64/R/')
  
     # Most libs come pre-built. Upgrade and/or install additional usr R packages
     for rlib in params.r_libs: 
@@ -28,10 +22,10 @@ class Client(Script):
         Execute("Rscript -e 'install.packages(c(\""+rlib+"\"), repos=\"http://cran.us.r-project.org\");'")
 
     # Install R Hadoop packages
-    #TODO: Pre-install & configure RHBase, and RHive
-    Execute(prefix+'R CMD INSTALL resources/rmr2_3.3.0.tar')
-    Execute(prefix+'R CMD INSTALL resources/rhdfs_1.0.8.tar.gz')
-    Execute(prefix+'R CMD INSTALL resources/plyrmr_0.5.0.tar.gz')
+    #TODO: Pre-install & configure RHBase and RJDBC
+    Execute(prefix+'R CMD INSTALL ' + params.resources_dir + 'rmr2_3.3.0.tar')
+    Execute(prefix+'R CMD INSTALL ' + params.resources_dir + 'rhdfs_1.0.8.tar.gz')
+    Execute(prefix+'R CMD INSTALL ' + params.resources_dir + 'plyrmr_0.5.0.tar.gz')
     Execute(prefix+'R CMD javareconf -e')
 
   def configure(self, env):
