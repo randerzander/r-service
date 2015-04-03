@@ -5,6 +5,6 @@
  <property require-input="false">
     <name>r.libs</name>
     <description>Comma separated list of R libs to install</description>
-    <value>Rcpp,RJSONIO,bitops,digest,functional,reshape2,stringr,plyr,caTools,rJava,Hmisc,plyr,dplyr,devtools,Rook,R.methodsS3,nnet,randomForest,rpart,C50,gbm,e1071,glmnet,bnlearn,cluster,bigrf,biclust,data.table,RJDBC</value>
+    <value>ggplot2,RCurl,Rcpp,RJSONIO,bitops,digest,functional,reshape2,stringr,plyr,caTools,rJava,Hmisc,plyr,dplyr,devtools,Rook,R.methodsS3,nnet,randomForest,rpart,C50,gbm,e1071,glmnet,bnlearn,cluster,bigrf,biclust,data.table,RJDBC</value>
  </property>
 </configuration>

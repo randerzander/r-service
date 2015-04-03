@@ -3,7 +3,7 @@ An Ambari Stack service package for R with pre-installed packages for working wi
 To deploy, copy the entire directory into your Ambari stacks folder and restart Ambari:
 
 **Note**:
-Installing the stack enables the EPEL yum repo on all designated client nodes. Installation requires connectivity to [CRAN](http://cran.us-r-project.org) for packages added to the default list (See Configuration Options).
+Installing the stack enables the EPEL yum repo on all designated client nodes. Installation requires connectivity to [CRAN](http://cran.us-r-project.org) for any package added to the default list (See Configuration Options).
 
 ```
 git clone https://github.com/randerzander/r-stack
