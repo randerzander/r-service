@@ -5,8 +5,8 @@
         <service>
             <name>R</name>
             <displayName>R</displayName>
-            <comment>R</comment>
-            <version>1.0.0</version>
+            <comment>The R Project for Statistical Computing</comment>
+            <version>0.1.0</version>
             <components>
                 <component>
                   <name>R_CLIENT</name>
@@ -24,6 +24,7 @@
               <osSpecific>
                 <osFamily>redhat6</osFamily>
                 <packages>
+                  <package><name>epel-release</name></package>
                   <package><name>R</name></package>
                 </packages>
               </osSpecific>
