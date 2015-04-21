@@ -7,7 +7,7 @@ Installing the stack enables the EPEL yum repo on all designated client nodes. I
 
 ```
 git clone https://github.com/randerzander/r-service
-sudo mv r-service /var/lib/ambari-server/resources/stacks/HDP/2.2/services/
+sudo cp -r r-service /var/lib/ambari-server/resources/stacks/HDP/2.2/services/
 sudo service ambari-server restart
 ```
 
@@ -30,7 +30,4 @@ There are two models for working with R in Hadoop environments:
 
 2. Cluster - use rplyr, or rmr2 to launch jobs that run on all cluster nodes. In this model, R needs to be installed on all YARN managed nodes. To install, check the 'Client' box for all nodes which have NodeManager installed.
 
-If you'd like to remove the R client from Ambari (libraries and OS packages will remain installed):
-```
-curl -u $user:$pass -i -H 'X-Requested-By: ambari' -X DELETE http://$host:8080/api/v1/clusters/$cluster/services/R
-```
+A 'remove.sh' script is provided in the project root for convenience. It'll remove the service package from Ambari's resources dir. Please edit remove.sh to set your Ambari login and cluster name details.
