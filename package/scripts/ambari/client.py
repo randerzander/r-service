@@ -3,9 +3,6 @@ import ambari_helpers as helpers
 
 class Client(Script):
   def install(self, env):
-    self.configure(env)
-    import params
-
     # Install repos & packages listed in metainfo.xml
     helpers.add_repos()
     self.configure(env)
