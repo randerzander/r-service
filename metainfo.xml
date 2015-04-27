@@ -14,7 +14,7 @@
                   <category>CLIENT</category>
                   <cardinality>1+</cardinality>
                   <commandScript>
-                    <script>scripts/client.py</script>
+                    <script>scripts/ambari/client.py</script>
                     <scriptType>PYTHON</scriptType>
                     <timeout>5000</timeout>
                   </commandScript>
@@ -30,7 +30,7 @@
               </osSpecific>
             </osSpecifics>
             <commandScript>
-              <script>scripts/service_check.py</script>
+              <script>scripts/ambari/service_check.py</script>
               <scriptType>PYTHON</scriptType>
               <timeout>300</timeout>
             </commandScript>

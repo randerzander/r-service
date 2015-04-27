@@ -7,8 +7,8 @@ rmr.options (
      hadoop = list (
        D = "mapreduce.map.java.opts=-Xmx800M",
        D = "mapreduce.reduce.java.opts=-Xmx800M",
-       D = "mapreduce.map.memory.mb=4096",
-       D = "mapreduce.reduce.memory.mb=4096",
+       D = "mapreduce.map.memory.mb=2048",
+       D = "mapreduce.reduce.memory.mb=2048",
        D = "mapreduce.task.io.sort.mb=64"
      )
    )
